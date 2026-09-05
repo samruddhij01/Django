@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include "nav.html" %}
+    <form action="/profileupdate" method="post">
+    {% csrf_token %}
+    {% for i in data %}
+    <input type="hidden" name="id" value="{{ i.id }}">
+
+    <input type="text" placeholder="enter your name" name="fullname" value="{{ i.fullname }}">
+    <br><br>
+    <input type="email" placeholder="enter your email" name="email" value="{{ i.email }}">
+    <br><br>
+    <input type="password" placeholder="enter your password" name="password" value="{{ i.password }}">
+    <br><br>
+    <input type="text" placeholder="enter your contact" name="contact" value="{{ i.contact }}">
+    <br><br>
+    <input type="text" placeholder="enter your address" name="address" value="{{ i.address }}">
+    <br><br>
+    {% endfor %}
+    <button type="submit">save update</button>
+</form>
+</body>
+</html>
