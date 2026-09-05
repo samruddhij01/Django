@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    {% include "nav.html" %}
+    <h2 class="text-center my-3">Registered Users</h2>
+     <table class="table table-bordered table-striped">
+<table>
+    <tr>
+        <th>id</th>
+        <th>fullname</th>
+        <th>email</th>
+        <th>password</th>
+        <th>contact</th>
+        <th>address</th>
+        <th>action</th>
+    </tr>
+    {%for i in data %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.fullname}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.password}}</td>
+        <td>{{i.contact}}</td>
+        <td>{{i.address}}</td>
+        <td>
+            <a href="deletestudent/{{i.id}}" class="btn btn-danger btn-sm">Delete</a>
+             <a href="/updatestudent?id={{ i.id }}">
+                    <button type="button">Update</button>
+            </a>
+        </td>
+        <td> </td>
+    </tr>
+    {%endfor%}
+</table>
+</body>
+</html>
